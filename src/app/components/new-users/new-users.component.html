@@ -1,0 +1,132 @@
+<!-- <button (click)="log()">Logggggggggggggggggg Data</button>
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Add Item</span>
+        <form (ngSubmit)="onSubmit()" class="col s6">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" placeholder="Add Title" [(ngModel)]="item.title" name="title">
+                    <label>Title</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" placeholder="Add Description" [(ngModel)]="item.description" name="description">
+                    <label>Description</label>
+                </div>
+                <input type="submit" value="Submit" class="btn">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<table>
+    <thead>
+        <th>Number</th>
+        <th>Created At</th>
+        <th>Expire At</th>
+        <th>Amount</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let policy of data">
+
+            <td>{{policy.title}}</td>
+            <td>{{policy.description}}</td>
+
+            <td>
+                <button (click)="delete(policy.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table> -->
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Add Item</span>
+        <form (ngSubmit)="onSubmit()" class="col s6">
+            <div class="row">
+                <div class="input-field col s6">
+                    <!-- <label>Question {{data[0].id}}</label> -->
+                    <input type="text" placeholder="Add Question" [(ngModel)]="ques.question" name="question" required>
+
+                </div>
+                <div class="input-field col s6">
+                    <label>Answer A</label>
+                    <input type="text" placeholder="Add Answer A" [(ngModel)]="ques.ansA" name="Answer A" required>
+                </div>
+
+                <div class="input-field col s6">
+                    <label>Answer B</label>
+                    <input type="text" placeholder="Add Answer B" [(ngModel)]="ques.ansB" name="Answer B" required>
+                </div>
+
+                <div class="input-field col s6">
+                    <label>Answer C</label>
+                    <input type="text" placeholder="Add Answer C" [(ngModel)]="ques.ansC" name="Answer C">
+                </div>
+
+                <div class="input-field col s6">
+                    <label>Answer D</label>
+                    <input type="text" placeholder="Add Answer D" [(ngModel)]="ques.ansD" name="Answer D">
+                </div>
+
+                <div class="input-field col s6">
+                    <label>Correct Answer</label>
+                    <input type="text" placeholder="Add correct answer" [(ngModel)]="ques.correct" name="correct">
+                </div>
+                <input type="submit" value="Submit" class="btn">
+                <input type="button" value="Reset" class="btn" (click)="OnReset()">
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div *ngFor="let info of data">
+
+    Questions: Answer:
+    <td>{{info.ques}}</td>
+    Answer A:
+    <td>{{info.ansA}}</td>
+    Answer B:
+    <td>{{info.ansB}}</td>
+    Correct Answer:
+    <td>{{info.correct}}</td>
+    <td>
+        <button (click)="deleteData(info.id)">Delete</button>
+        <button (click)="editData($event, info)">Update</button>
+        <button (click)="clearData($event, info)">Clear</button>
+    </td>
+
+    <div *ngIf="editState && dataToEdit.id==info.id">
+        <form (ngSubmit)="update(info)" class="col s6">
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <!-- <label>Question {{data[0].id}}</label> -->
+                    <input type="text" placeholder="Add Question" [(ngModel)]="info.ques" name="question" required>
+
+                </div>
+
+                <div class="input-field col s6">
+                    <label>Answer A</label>
+                    <input type="text" placeholder="Add Answer A" [(ngModel)]="info.ansA" name="Answer A" required>
+                </div>
+
+                <div class="input-field col s6">
+                    <label>Answer B</label>
+                    <input type="text" placeholder="Add Answer B" [(ngModel)]="info.ansB" name="Answer B" required>
+                </div>
+
+                <div class="input-field col s6">
+                    <label>Correct Answer</label>
+                    <input type="text" placeholder="Add correct answer" [(ngModel)]="info.correct" name="correct">
+                </div>
+
+                <input type="submit" value="Submit" class="btn">
+            </div>
+        </form>
+    </div>
+</div>
